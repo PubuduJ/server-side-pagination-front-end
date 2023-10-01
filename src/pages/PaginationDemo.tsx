@@ -19,6 +19,7 @@ type Student = {
 const PaginationDemo = () => {
     const [students, setStudents] = useState<Student[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const [gridLoading, setGridLoading] = useState<boolean>(false);
     const [toastConfig, setToastConfig] = useState<ToastData>({ open: false, message: "", type: "success" });
 
     // Server Side Pagination Handling States,
@@ -96,9 +97,11 @@ const PaginationDemo = () => {
 
     const handleGetStudentsData = async () => {
         try {
+            setGridLoading(true);
             const response = await getCall(searchQuery, size, page);
             setTotalCount(response.data.totalCount);
             setStudents(response.data.studentList);
+            setGridLoading(false);
         } catch (err: any) {
             if (err instanceof Error) {
                 setToastConfig({open: true, message: err.message, type: "error"});
@@ -167,10 +170,8 @@ const PaginationDemo = () => {
                         <Typography mt={-1} pb={1} fontWeight={"normal"} variant={"h6"}>Student List</Typography>
                         <Box bgcolor={"white"} sx={{ height: 400, width: '100%' }}>
                             <DataGrid
-                                // slots={{
-                                //     loadingOverlay: LinearProgress,
-                                // }}
-                                // loading={dataGridLoading}
+                                slots={{loadingOverlay: LinearProgress,}}
+                                loading={gridLoading}
                                 columns={columns}
                                 rows={students}
                                 pagination={true}

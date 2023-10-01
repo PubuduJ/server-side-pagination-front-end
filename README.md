@@ -8,7 +8,7 @@ response** by handing the relevant props with the front end states.
 
 #### User Interface
 
-<img src="assets/desktop-view.png" alt="pagination-ui" width="800px"/>
+<img src="assets/ui.png" alt="pagination-ui" width="700px"/>
 
 ## Used Technologies
 

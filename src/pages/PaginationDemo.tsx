@@ -124,7 +124,7 @@ const PaginationDemo = () => {
 
     return (
         <>
-            <Grid bgcolor={"#E5E9F1"} pl={3} pr={3} pt={4} container rowSpacing={2}>
+            <Grid pl={2} pr={2} pt={3} container rowSpacing={2}>
                 <Grid item xs={12}><Typography variant={"h5"}>Server Side Pagination Demo</Typography></Grid>
                 <Grid item xs={12}>
                     <Breadcrumbs separator="-" >

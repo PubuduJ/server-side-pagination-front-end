@@ -6,9 +6,22 @@ import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
+type Student = {
+    id: number;
+    firstName: string;
+    lastName: string;
+    age: number;
+    contact: string;
+}
+
 const PaginationDemo = () => {
+    const [students, setStudents] = useState<Student[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>("");
 
+    // Server Side Pagination Handling States,
+    const [page, setPage] = useState<number>(0);
+    const [size, setSize] = useState<number>(5);
+    const [totalCount, setTotalCount] = useState<number>(0);
 
     return (
         <>
@@ -63,7 +76,7 @@ const PaginationDemo = () => {
                                 // }}
                                 // loading={dataGridLoading}
                                 columns={[]}
-                                rows={[]}
+                                rows={students}
                                 initialState={{
                                     pagination: {
                                         paginationModel: {

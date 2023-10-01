@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {Button, Grid, InputAdornment, LinearProgress, TextField} from "@mui/material";
+import React, { useState } from 'react';
+import {Grid, InputAdornment, LinearProgress, TextField} from "@mui/material";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,33 +13,28 @@ const PaginationDemo = () => {
     return (
         <>
             <Grid bgcolor={"#E5E9F1"} pl={3} pr={3} pt={4} container rowSpacing={2}>
-                <Grid item xs={12}><Typography variant={"h6"}>Server Side Pagination Demo</Typography></Grid>
+                <Grid item xs={12}><Typography variant={"h5"}>Server Side Pagination Demo</Typography></Grid>
                 <Grid item xs={12}>
-                    <Breadcrumbs aria-label="breadcrumb">
-                        <Link
-                            underline="hover"
+                    <Breadcrumbs separator="-" >
+                        <Typography
                             color="inherit"
-                            href="#"
                             variant='subtitle2'
                         >
                             React
-                        </Link>
-                        <Link
-                            underline="hover"
+                        </Typography>
+                        <Typography
                             color="inherit"
-                            href="#"
                             variant='subtitle2'
                         >
                             Data Grid
-                        </Link>
-                        <Link
-                            underline="hover"
-                            href="#"
+                        </Typography>
+                        <Typography
                             fontWeight="bold"
                             variant='subtitle2'
+                            color={"#005DFF"}
                         >
                             Pagination
-                        </Link>
+                        </Typography>
                     </Breadcrumbs>
                 </Grid>
                 <Grid item xs={12}>
@@ -60,7 +54,8 @@ const PaginationDemo = () => {
                     />
                 </Grid>
                 <Grid item xs={12} mt={4} mb={5}>
-                    <Box padding={2} style={{ backgroundColor: "white", borderRadius: 2 }}>
+                    <Box padding={2} style={{ backgroundColor: "white", borderRadius: 5 }}>
+                        <Typography mt={-1} pb={1} fontWeight={"normal"} variant={"h6"}>Student List</Typography>
                         <Box bgcolor={"white"} sx={{ height: 400, width: '100%' }}>
                             <DataGrid
                                 // slots={{

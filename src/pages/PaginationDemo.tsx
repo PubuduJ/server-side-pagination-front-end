@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Grid, InputAdornment, LinearProgress, TextField} from "@mui/material";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import {getCall} from "../api/apiCalls";
+import Toast, {ToastData} from "../components/Toast";
 
 type Student = {
     id: number;
@@ -18,6 +19,7 @@ type Student = {
 const PaginationDemo = () => {
     const [students, setStudents] = useState<Student[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const [toastConfig, setToastConfig] = useState<ToastData>({ open: false, message: "", type: "success" });
 
     // Server Side Pagination Handling States,
     const [page, setPage] = useState<number>(0);
@@ -98,9 +100,24 @@ const PaginationDemo = () => {
             setTotalCount(response.data.totalCount);
             setStudents(response.data.studentList);
         } catch (err: any) {
-
+            if (err instanceof Error) {
+                setToastConfig({open: true, message: err.message, type: "error"});
+            } else {
+                setToastConfig({open: true, message: "Fail to load student details", type: "error"});
+            }
         }
     }
+
+    useEffect(() => {
+        setPage(0);
+        handleGetStudentsData().then(r => {});
+    }, [searchQuery])
+
+    useEffect(() => {
+        handleGetStudentsData().then(r => {});
+    }, [page, size])
+
+    const handleToastOnclose = (state: boolean) => {setToastConfig((prevState: ToastData) => { return { ...prevState, "open": state } })};
 
     return (
         <>
@@ -182,6 +199,12 @@ const PaginationDemo = () => {
                     </Box>
                 </Grid>
             </Grid>
+            <Toast
+                data={toastConfig}
+                action={{
+                    onClose: handleToastOnclose
+                }}
+            />
         </>
     )
 }

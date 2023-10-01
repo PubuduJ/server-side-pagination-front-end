@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import {getCall} from "../api/apiCalls";
 
 type Student = {
     id: number;
@@ -90,6 +91,16 @@ const PaginationDemo = () => {
             headerAlign: "left"
         },
     ];
+
+    const handleGetStudentsData = async () => {
+        try {
+            const response = await getCall(searchQuery, size, page);
+            setTotalCount(response.data.totalCount);
+            setStudents(response.data.studentList);
+        } catch (err: any) {
+
+        }
+    }
 
     return (
         <>

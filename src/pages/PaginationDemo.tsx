@@ -145,6 +145,9 @@ const PaginationDemo = () => {
                                 // loading={dataGridLoading}
                                 columns={columns}
                                 rows={students}
+                                pagination={true}
+                                rowCount={totalCount}
+                                paginationMode={"server"}
                                 initialState={{
                                     pagination: {
                                         paginationModel: {
@@ -153,8 +156,16 @@ const PaginationDemo = () => {
                                         },
                                     },
                                 }}
+                                paginationModel={{
+                                    page: page,
+                                    pageSize: size
+                                }}
                                 pageSizeOptions={[5, 10, 15]}
                                 disableRowSelectionOnClick
+                                onPaginationModelChange={(model) => {
+                                    setPage(model.page);
+                                    setSize(model.pageSize);
+                                }}
                             />
                         </Box>
                     </Box>

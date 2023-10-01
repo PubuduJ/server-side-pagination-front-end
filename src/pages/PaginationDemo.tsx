@@ -23,6 +23,74 @@ const PaginationDemo = () => {
     const [size, setSize] = useState<number>(5);
     const [totalCount, setTotalCount] = useState<number>(0);
 
+    const columns: GridColDef[] = [
+        {
+            field: "id",
+            headerName: "Student ID",
+            flex: 1,
+            minWidth: 150,
+            renderHeader: (params) => {
+                return <strong>{params.colDef.headerName}</strong>
+            },
+            sortable: true,
+            disableColumnMenu: true,
+            align: "left",
+            headerAlign: "left"
+        },
+        {
+            field: "firstName",
+            headerName: "First Name",
+            flex: 1,
+            minWidth: 200,
+            renderHeader: (params) => {
+                return <strong>{params.colDef.headerName}</strong>
+            },
+            sortable: true,
+            disableColumnMenu: true,
+            align: "left",
+            headerAlign: "left"
+        },
+        {
+            field: "lastName",
+            headerName: "Last Name",
+            flex: 1,
+            minWidth: 200,
+            renderHeader: (params) => {
+                return <strong>{params.colDef.headerName}</strong>
+            },
+            sortable: true,
+            disableColumnMenu: true,
+            align: "left",
+            headerAlign: "left"
+        },
+        {
+            field: "age",
+            headerName: "Age",
+            flex: 1,
+            minWidth: 200,
+            renderHeader: (params) => {
+                return <strong>{params.colDef.headerName}</strong>
+            },
+            sortable: true,
+            disableColumnMenu: true,
+            align: "left",
+            headerAlign: "left"
+        },
+        {
+            field: "contact",
+            headerName: "Contact No",
+            flex: 1,
+            minWidth: 200,
+            renderHeader: (params) => {
+                return <strong>{params.colDef.headerName}</strong>
+            },
+            sortable: true,
+            disableColumnMenu: true,
+            align: "left",
+            headerAlign: "left"
+        },
+    ];
+
     return (
         <>
             <Grid bgcolor={"#E5E9F1"} pl={3} pr={3} pt={4} container rowSpacing={2}>
@@ -75,7 +143,7 @@ const PaginationDemo = () => {
                                 //     loadingOverlay: LinearProgress,
                                 // }}
                                 // loading={dataGridLoading}
-                                columns={[]}
+                                columns={columns}
                                 rows={students}
                                 initialState={{
                                     pagination: {

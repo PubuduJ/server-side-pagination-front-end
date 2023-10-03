@@ -36,7 +36,7 @@ const PaginationDemo = () => {
             renderHeader: (params) => {
                 return <strong>{params.colDef.headerName}</strong>
             },
-            sortable: true,
+            sortable: false,
             disableColumnMenu: true,
             align: "left",
             headerAlign: "left"
@@ -49,7 +49,7 @@ const PaginationDemo = () => {
             renderHeader: (params) => {
                 return <strong>{params.colDef.headerName}</strong>
             },
-            sortable: true,
+            sortable: false,
             disableColumnMenu: true,
             align: "left",
             headerAlign: "left"
@@ -62,7 +62,7 @@ const PaginationDemo = () => {
             renderHeader: (params) => {
                 return <strong>{params.colDef.headerName}</strong>
             },
-            sortable: true,
+            sortable: false,
             disableColumnMenu: true,
             align: "left",
             headerAlign: "left"
@@ -75,7 +75,7 @@ const PaginationDemo = () => {
             renderHeader: (params) => {
                 return <strong>{params.colDef.headerName}</strong>
             },
-            sortable: true,
+            sortable: false,
             disableColumnMenu: true,
             align: "left",
             headerAlign: "left"
@@ -88,7 +88,7 @@ const PaginationDemo = () => {
             renderHeader: (params) => {
                 return <strong>{params.colDef.headerName}</strong>
             },
-            sortable: true,
+            sortable: false,
             disableColumnMenu: true,
             align: "left",
             headerAlign: "left"

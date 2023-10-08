@@ -6,6 +6,8 @@ This project shows how to handle **server-side pagination** with a **react mui f
 The mui library, **data grid** component is used here to manage front end pagination via **server side 
 response** by handing the relevant props with the front end states.
 
+Back end of the project can be visited from [**here.**](https://github.com/PubuduJ/server-side-pagination-back-end)
+
 #### User Interface
 
 <img src="assets/ui.png" alt="pagination-ui" width="700px"/>
